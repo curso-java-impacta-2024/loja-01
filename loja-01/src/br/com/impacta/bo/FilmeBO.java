@@ -7,7 +7,7 @@ import br.com.impacta.dao.FilmeDAO;
 
 public class FilmeBO {
 
-	private  FilmeDAO fdao;
+	private  FilmeDAO fdao = null;
 	
 	public List<FilmeBEAN> listaFilme(){
 		fdao = new FilmeDAO();
