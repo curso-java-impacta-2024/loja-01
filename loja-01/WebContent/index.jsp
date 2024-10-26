@@ -11,51 +11,57 @@
 <title>IMDB</title>
 </head>
 <body>
-
-	<h1>CADASTRO DE FILMES</h1>
-
-	<div>
-		<form action="index.php" method="get">
-			<fieldset>
-				<legend>Cadastro</legend>
+	<div class="container">
+		<header>
+			<h1>TMDB-FAKE</h1>
+			<nav>
+				<ul>
+					<li>Lista de Filmes</li>
+					<li>Cadastrar</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+		<section>
+			<h2>Mais Populares</h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and
+				typesetting industry. Lorem Ipsum has been the industry's standard
+				dummy text ever since the 1500s, when an unknown printer took a
+				galley of type and scrambled it to make a type specimen book. It has
+				survived not only five centuries, but also the leap into electronic
+				typesetting, remaining essentially unchanged. It was popularised in
+				the 1960s with the release of Letraset sheets containing Lorem Ipsum
+				passages, and more recently with desktop publishing software like
+				Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</section>
+		<section>
+			<h2>Mais Populares</h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and
+				typesetting industry. Lorem Ipsum has been the industry's standard
+				dummy text ever since the 1500s, when an unknown printer took a
+				galley of type and scrambled it to make a type specimen book. It has
+				survived not only five centuries, but also the leap into electronic
+				typesetting, remaining essentially unchanged. It was popularised in
+				the 1960s with the release of Letraset sheets containing Lorem Ipsum
+				passages, and more recently with desktop publishing software like
+				Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</section>
+		</main>
+		<footer>
+			<h2>Nossos contatos</h2>
+					<div>
+					<span>WhatsApp</span>
+						<a href="tel:11999984681">11999984681</a>
+					</div>
+					<div>
+					<span>Email</span>
+						<a href="emailto:meuemail@gmail.com">meuemail@gmail.com</a>
+					</div>
 				<div>
-					<label for="idTitulo">Título</label> <input type="text"
-						name="titulo" id="idTitulo"
-						placeholder="Digite o título do filme." required>
-				</div>
-				<div>
-					<label for="idDuracao">Duração</label> <input type="number"
-						name="duracao" id="idDuracao"
-						placeholder="Digite a duração do filme." required>
-				</div>
-				<div>
-					<label for="idGenero">Gênero</label> <select name="genero"
-						id="idGenero">
-						<option value="0">Selecione uma opção</option>
-						<option value="ficcao">Ficção</option>
-						<option value="guerra">Guerra</option>
-						<option value="fantasia">Fantasia</option>
-						<option value="aventura">Aventura</option>
-						<option value="comedia">Comédia</option>
-						<option value="acao">Ação</option>
-					</select>
-				</div>
-				<div>
-					<label for="idAnoLanc">Ano de Lançamento</label> <input
-						type="text" name="anoLanc" id="idAnoLanc"
-						placeholder="Digite o ano de lançamento do filme." 
-						maxlength="4"
-						required>
-				</div>
-				
-				<div>
-					<button type="submit">Cadastrar</button>
-				</div>
-								
-			</fieldset>
-		</form>
+					<p>Criado por você, o melhor desenvolvedor. &copy; - 2024</p>
+					</div>
+		</footer>
 	</div>
-
 
 </body>
 </html>

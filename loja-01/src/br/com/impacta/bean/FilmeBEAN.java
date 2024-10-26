@@ -24,8 +24,8 @@ public class FilmeBEAN {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 
 	public String getTitulo() {
@@ -59,5 +59,10 @@ public class FilmeBEAN {
 	public void setAnoLanc(int anoLanc) {
 		this.anoLanc = anoLanc;
 	}
+
+	public void setId(String string) {
+		// TODO Auto-generated method stub
+		
+
 	
 }
