@@ -53,7 +53,7 @@ public class CadastroController extends HttpServlet {
 		}else if (uriPath[uriPath.length].equals("listagem")) {
 			//Instanciando a classe BO para iniciar o processo de Listagem dos dados
 			FilmeBO fbo = new FilmeBO();
-			List<FilmeBEAN> lesta = fbo.listaFilme();
+			List<FilmeBEAN> lista = fbo.listaFilme1();
 			//Criando um atributo no request:
 			request.setAttribute("listaDeFilme", lista);
 			//Criando um dispatcher com o request para enviar o atributo

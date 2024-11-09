@@ -60,9 +60,7 @@ public class FilmeBEAN {
 		this.anoLanc = anoLanc;
 	}
 
-	public void setId(String string) {
+	public void setId() {
 		// TODO Auto-generated method stub
-		
-
-	
+	}
 }

@@ -16,7 +16,7 @@
 			<h1>TMDB-FAKE</h1>
 			<nav>
 				<ul>
-					<li>Lista de Filmes</li>
+					<li><a href= "listagem">Lista de Filmes</a></li>
 					<li>Cadastrar</li>
 				</ul>
 			</nav>
