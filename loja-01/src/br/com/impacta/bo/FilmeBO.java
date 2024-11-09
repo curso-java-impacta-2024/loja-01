@@ -18,7 +18,7 @@ public class FilmeBO {
 	}
 	
 	
-	public FilmeBEAN listaFilme(int id){
+	/*public FilmeBEAN listaFilme(int id){
 		
 		fdao = new FilmeDAO();
 		return fdao.select(id);
@@ -50,7 +50,7 @@ public class FilmeBO {
 	}
 	
 	
-	
+	*/
 	
 	
 	

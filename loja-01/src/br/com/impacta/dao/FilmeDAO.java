@@ -1,65 +1,31 @@
 package br.com.impacta.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.impacta.bean.FilmeBEAN;
+import br.com.impacta.conexao.ConexaoFactory;
 
 public class FilmeDAO {
 	
+	
+	
 	public static List<FilmeBEAN> listaFilme = null;
 	
+	private Connection con = null;
 	
+
 	
 	public FilmeDAO() {
 		
-		//Implementandoa lista com a estrutura de um ArrayList
+		ConexaoFactory cf = new ConexaoFactory(); // Insjeção de dependencia
 		
-		if(listaFilme == null) {
-			listaFilme = new ArrayList<FilmeBEAN>();
-			
-			//Instanciar a classe filme para criar alguns Objetos
-			
-			FilmeBEAN fb = new FilmeBEAN();
-			//Criando o primeiro objeto
-			
-			fb.setId(1);
-			fb.setTitulo("Velocidade Terminal");
-			fb.setAnoLanc(2021);
-			fb.setDuracao(360);
-			fb.setGenero("acao");
-			// Adicionando o filme na lista
-			
-			listaFilme.add(fb);
-			
-			//Criando o segundo objeto
-			fb = new FilmeBEAN();
-			
-			fb.setId(2);
-			fb.setTitulo("ET");
-			fb.setAnoLanc(1983);
-			fb.setDuracao(410);
-			fb.setGenero("aventura");
-			// Adicionando o filme na lista
-			
-			listaFilme.add(fb);
-			
-			//Criando o terceiro objeto
-			fb = new FilmeBEAN();
-
-			fb.setId(3);
-			fb.setTitulo("A Cor Purpura");
-			fb.setAnoLanc(1985);
-			fb.setDuracao(370);
-			fb.setGenero("drama");
-			// Adicionando o filme na lista
-			
-			listaFilme.add(fb);
-			
-			
-			
-			
-		}
+		this.con = cf.getConexao();
+		
 	}
 	
 	
@@ -69,64 +35,52 @@ public class FilmeDAO {
 		
 	}
 	
-
-	public FilmeBEAN select(int id){ //parametro
+	public List<FilmeBEAN> select2(){
 		
-		for (int i = 0; i < listaFilme.size(); i++) {
+		try {
 			
-			if(listaFilme.get(i).getId() == id) {
+			String sql = "SELECT * FROM FILME";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			List<FilmeBEAN> list = new ArrayList<FilmeBEAN>();
+			
+			FilmeBEAN fb;
+			
+			while(rs.next()) {
 				
-				return listaFilme.get(i);
+				fb = new FilmeBEAN();
+				
+				fb.setId( Integer.parseInt(rs.getString("id")));
+				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc")));
+				fb.setDuracao( Double.parseDouble(rs.getString("duracao")));
+				fb.setGenero(rs.getString("genero"));
+				fb.setGenero(rs.getString("titulo"));
+				
+				list.add(fb);
+				
 				
 			}
 			
+			//Encerrar os objetos do BANCO
+			rs.close();
+			ps.close();
+			con.close();
+			return list;
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return null;
 		
 	}
 	
-	
-	public boolean insert(FilmeBEAN fb){
-		
-		return listaFilme.add(fb);
-		
-	}
-	
-	
-	
-	public boolean update(FilmeBEAN fb){
-		
-		for (int i = 0; i < listaFilme.size(); i++) {
-			
-			if(listaFilme.get(i) == fb) {
-				
-				 listaFilme.set(i, fb);
-   				 return true;
-			}
-			
-		}
-		
-		return false;
-			
-	}
-	
-	
-	public boolean delete(int id){
-		
-		for (int i = 0; i < listaFilme.size(); i++) {
-			
-			if(listaFilme.get(i).getId() == id) {
-				
-				 return listaFilme.remove(listaFilme.get(i));
-   				 
-			}
-			
-		}
-		
-		return false;
-			
-	}
+
 	
 	
 	

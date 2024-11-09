@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lista de Filmes</title>
+	<title>Lista de Filmes</title>
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
