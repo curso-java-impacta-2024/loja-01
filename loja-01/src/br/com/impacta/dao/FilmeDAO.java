@@ -27,20 +27,20 @@ public class FilmeDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			List<FilmeBEAN> listaFilmes = new ArrayList<FilmeBEAN>();
-			
+
 			FilmeBEAN fb;
-			
+
 			while (rs.next()) {
 				fb = new FilmeBEAN();
 				fb.setId(Integer.parseInt(rs.getString("id")));
-				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc")));;
+				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc")));
 				fb.setDuracao(Double.parseDouble(rs.getString("duracao")));
 				fb.setGenero(rs.getString("genero"));
 				fb.setTitulo(rs.getString("titulo"));
-				
+
 				listaFilmes.add(fb);
 			}
-			
+
 			rs.close();
 			ps.close();
 			con.close();
