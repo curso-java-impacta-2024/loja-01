@@ -13,24 +13,24 @@ public class FilmeBO {
 		fdao = new FilmeDAO();
 		return fdao.select();
 	}
-	
-	public FilmeBEAN listaFilme(int id){
-		fdao = new FilmeDAO();
-		return fdao.select(id);
-	}
-	
-	public boolean cadastrarFilme(FilmeBEAN fb) {
-		fdao = new FilmeDAO();
-		return fdao.insert(fb);
-	}
-	
-	public boolean atualizaFilme(FilmeBEAN fb) {
-		fdao = new FilmeDAO();
-		return fdao.update(fb);
-	}
-	
-	public boolean deletaFilme(int id) {
-		fdao = new FilmeDAO();
-		return fdao.delete(id);
-	}
+//	
+//	public FilmeBEAN listaFilme(int id){
+//		fdao = new FilmeDAO();
+//		return fdao.select(id);
+//	}
+//	
+//	public boolean cadastrarFilme(FilmeBEAN fb) {
+//		fdao = new FilmeDAO();
+//		return fdao.insert(fb);
+//	}
+//	
+//	public boolean atualizaFilme(FilmeBEAN fb) {
+//		fdao = new FilmeDAO();
+//		return fdao.update(fb);
+//	}
+//	
+//	public boolean deletaFilme(int id) {
+//		fdao = new FilmeDAO();
+//		return fdao.delete(id);
+//	}
 }

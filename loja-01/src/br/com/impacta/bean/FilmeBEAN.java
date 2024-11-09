@@ -59,5 +59,6 @@ public class FilmeBEAN {
 	public void setAnoLanc(int anoLanc) {
 		this.anoLanc = anoLanc;
 	}
+
 	
 }
