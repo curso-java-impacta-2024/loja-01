@@ -8,6 +8,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Lista de Filmes</title>
+
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<h1>Lista com os melhores Filmes</h1>
