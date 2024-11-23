@@ -57,6 +57,42 @@ public class FilmeDAO {
 		
 	}
 	
+	public FilmeBEAN select(int id) {
+		
+		String sql = "SELECT * FROM FILME WHERE ID = ?";
+		
+			try {
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				
+				FilmeBEAN fb =new FilmeBEAN();
+				
+				while (rs.next()) {
+	
+					fb.setId(Integer.parseInt(rs.getString("id")));
+					fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc").replace("-", "")));
+					fb.setDuracao( Double.parseDouble(rs.getString("duracao")));
+					fb.setGenero(rs.getString("genero"));
+					fb.setTitulo(rs.getString("titulo"));
+					
+				}
+				
+				//Encerrar os objetos do BANCO
+				rs.close();
+				ps.close();
+				con.close();
+				
+				return fb;
+
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return null;
+
+	}
 	
 	
 		

@@ -28,7 +28,7 @@
 	        <tbody>
 	            <c:forEach var="filme" items="${listaDeFilmes}">
 	                <tr>
-	                    <td>${filme.titulo}</td>
+	                    <td><a href="filme-view?id=${filme.id}">${filme.titulo}</a></td>
 	                    <td>${filme.anoLanc}</td>
 	                    <td>${filme.duracao}</td>
 	                    <td>${filme.genero}</td>
