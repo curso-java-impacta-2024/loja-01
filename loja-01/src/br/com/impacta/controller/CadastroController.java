@@ -20,7 +20,7 @@ import br.com.impacta.bo.FilmeBO;
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
+	/**n
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public CadastroController() {
