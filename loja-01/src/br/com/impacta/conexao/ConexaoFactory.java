@@ -8,8 +8,8 @@ public class ConexaoFactory {
 
 	private Connection con = null;
 	private String urlDB = "jdbc:mysql://localhost:3306/imdb_sabado";
-	private String user = "root";
-	private String pass = "Imp@ct@";
+	private String user = "teste";
+	private String pass = "impacta1";
 	
 	public Connection getConexao() {
 		//Realizando a conexão com o banco
@@ -18,7 +18,7 @@ public class ConexaoFactory {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(urlDB, user, pass);
-		} catch (SQLException e) {
+		} catch (SQLException e) {                                                                               
 			e.printStackTrace();
 			return null;
 		} catch (ClassNotFoundException e) {
