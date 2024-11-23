@@ -11,13 +11,47 @@ import br.com.impacta.bean.FilmeBEAN;
 import br.com.impacta.conexao.ConexaoFactory;
 
 public class FilmeDAO {
-	
 	private Connection con = null;
-	
+
 	public FilmeDAO() {
 		ConexaoFactory cf = new ConexaoFactory();
 		this.con = cf.getConexao();
+
 	}
+
+	public List<FilmeBEAN> select2() {
+		String sql = "SELECT * FROM FILME";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			List<FilmeBEAN> listaFilmes = new ArrayList<FilmeBEAN>();
+
+			FilmeBEAN fb;
+
+			while (rs.next()) {
+				fb = new FilmeBEAN();
+				fb.setId(Integer.parseInt(rs.getString("id")));
+				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc")));
+				fb.setDuracao(Double.parseDouble(rs.getString("duracao")));
+				fb.setGenero(rs.getString("genero"));
+				fb.setTitulo(rs.getString("titulo"));
+
+				listaFilmes.add(fb);
+			}
+
+			rs.close();
+			ps.close();
+			con.close();
+			return listaFilmes;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+
 	
 	public List<FilmeBEAN> select(){
 		
@@ -57,7 +91,5 @@ public class FilmeDAO {
 		
 	}
 	
-	
-	
-		
+
 }

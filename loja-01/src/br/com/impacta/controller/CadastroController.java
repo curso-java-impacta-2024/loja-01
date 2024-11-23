@@ -15,7 +15,8 @@ import br.com.impacta.bo.FilmeBO;
 /**
  * Servlet implementation class CadastroController
  */
-@WebServlet(urlPatterns= {"/index.php", "/listagem"})
+
+@WebServlet(urlPatterns = { "/index.php", "/listagem" })
 
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,22 +53,22 @@ public class CadastroController extends HttpServlet {
 			// Criando um dispatcher com o request para enviar o atributo
 			// para a nova página receber e ler o conteúdo...
 			request.getRequestDispatcher("result.jsp").forward(request, response);
-		}else if (uriPath[uriPath.length - 1].equals("listagem")) {
+		} else if (uriPath[uriPath.length - 1].equals("listagem")) {
 			
-			//Instanciando a classe BO para iniciar o processo
-			// de listagem dos dados.
+			//Instanciando a classe BO para iniciar o processo de listagem dos dados
+			// Criando um atributo no request:
 			FilmeBO fbo = new FilmeBO();
 			//Recebendo a lista do método de listagem e colocando em uma lista
 			//do tipo FilmeBEAN
-			List<FilmeBEAN> lista =  fbo.listaFilme();
-						
+			List<FilmeBEAN> lista = fbo.listaFilme();
+			
 			// Criando um atributo no request:
 			request.setAttribute("listaDeFilmes", lista);
-			// Criando um dispatcher com o request para enviar o atributo com
-			// a lista para a página listagem receber e apresentar  o conteúdo...
+			
+			// Criando um dispatcher com o request para enviar o atributo
+			// para a nova página receber e ler o conteúdo...
 			request.getRequestDispatcher("listagem.jsp").forward(request, response);
 		}
 	}
-
 	
 }
