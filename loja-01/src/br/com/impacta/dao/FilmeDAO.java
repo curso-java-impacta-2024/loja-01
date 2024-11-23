@@ -91,5 +91,45 @@ public class FilmeDAO {
 		
 	}
 	
+	//Crie a addinatura de um metodo para retornar apenas um registro do banco de dados
+	//passando um unico parametro.
+	
+	public FilmeBEAN select(int id) {
+		
+		String sql = "SELECT * FROM FILME WHERE id = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs =	ps.executeQuery();
+			
+			FilmeBEAN fb = new FilmeBEAN();
+			
+			while(rs.next()) {
+				fb.setId(Integer.parseInt(rs.getString("id")));
+				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc").replace("-", "")));
+				fb.setDuracao( Double.parseDouble(rs.getString("duracao")));
+				fb.setGenero(rs.getString("genero"));
+				fb.setTitulo(rs.getString("titulo"));
+			}
+			
+			//Encerrar os objetos do BANCO
+			rs.close();
+			ps.close();
+			con.close();
+			
+			//Retornando um FilmeBEAN;
+			return  fb;
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
+	
 
 }

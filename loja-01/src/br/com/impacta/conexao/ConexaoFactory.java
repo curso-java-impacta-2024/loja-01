@@ -16,10 +16,14 @@ public class ConexaoFactory {
 		//Uitilizamos o DriverManager passando os parâmetros na ordem:
 		//urlDB, user e pass
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(urlDB, user, pass);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println("CONECTOU!!!");
 	

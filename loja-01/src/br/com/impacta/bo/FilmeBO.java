@@ -14,10 +14,10 @@ public class FilmeBO {
 		return fdao.select();
 	}
 	
-//	public FilmeBEAN listaFilme(int id){
-//		fdao = new FilmeDAO();
-//		return fdao.select(id);
-//	}
+	public FilmeBEAN listaFilme(int id){
+		fdao = new FilmeDAO();
+		return fdao.select(id);
+	}
 //	
 //	public boolean cadastrarFilme(FilmeBEAN fb) {
 //		fdao = new FilmeDAO();
