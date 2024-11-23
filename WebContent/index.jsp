@@ -14,6 +14,7 @@
 
 	<div class="container">
 		<header>
+<<<<<<< HEAD
 			<h1>IMBD - FAKE</h1>
 			<nav>
 				<ul>
@@ -21,6 +22,13 @@
 					<li>Cadastrar</li>
 					<li>Atualizar</li>
 					<li>Deletar</li>
+=======
+			<h1>IMDB-FAKE</h1>
+			<nav>
+				<ul>
+					<li> <a href="listagem">Lista de Filmes</a> </li>
+					<li>Cadastrar</li>
+>>>>>>> master
 				</ul>
 			</nav>
 		</header>
@@ -51,6 +59,7 @@
 		</section>
 		</main>
 		<footer>
+<<<<<<< HEAD
 			<h2>Nossos Canais:</h2>
 				<div>
 					<span>Whatsapp</span><a href="tel:11985562147"></a>
@@ -61,6 +70,20 @@
 				<div>
 					<p>Criado por você. &copy; - 2024</p>
 				</div>
+=======
+			<h2>Nossos contatos:</h2>
+			<div>
+				<span>WhatsApp</span>
+				<a href="tel:11990785353">11990785353</a>
+			</div>
+			<div>
+				<span>Email</span>
+				<a href="mailto:meuemail@email.com">meuemail@email.com</a>
+			</div>
+			<div>
+				<p>Criado por você, o melhor desenvolvedor. &copy; - 2024</p>
+			</div>
+>>>>>>> master
 		</footer>
 	</div>
 

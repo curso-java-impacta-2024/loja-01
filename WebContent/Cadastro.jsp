@@ -41,17 +41,16 @@
 					</select>
 				</div>
 				<div>
-					<label for="idAnoLanc">Ano de Lançamento</label> <input
-						type="text" name="anoLanc" id="idAnoLanc"
-						placeholder="Digite o ano de lançamento do filme." 
-						maxlength="4"
+					<label for="idAnoLanc">Ano de Lançamento</label> <input type="text"
+						name="anoLanc" id="idAnoLanc"
+						placeholder="Digite o ano de lançamento do filme." maxlength="4"
 						required>
 				</div>
-				
+
 				<div>
 					<button type="submit">Cadastrar</button>
 				</div>
-								
+
 			</fieldset>
 		</form>
 	</div>
