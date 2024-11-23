@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexaoFactory {
 
 	private Connection con = null;
-	private String urlDB = "jdbc:mysql://localhost:3306/imdb_sabado";
+	private String urlDB = "jdbc:mysql://172.18.37.15:3306/imdb_sabado";
 	private String user = "teste";
 	private String pass = "impacta1";
 	

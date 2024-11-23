@@ -15,12 +15,12 @@ import br.com.impacta.bo.FilmeBO;
 /**
  * Servlet implementation class CadastroController
  */
-@WebServlet(urlPatterns= {"/index.php", "/listagem"})
+@WebServlet(urlPatterns= {"/index.php", "/listagem","/filme-view"})
 
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**n
+	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public CadastroController() {
@@ -35,6 +35,7 @@ public class CadastroController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//RECUPERANDO O PATH ATUAL
 		String uriPath[] = request.getRequestURI().split("/");
 
 		if (uriPath[uriPath.length - 1].equals("index.php")) {
@@ -66,6 +67,25 @@ public class CadastroController extends HttpServlet {
 			// Criando um dispatcher com o request para enviar o atributo com
 			// a lista para a página listagem receber e apresentar  o conteúdo...
 			request.getRequestDispatcher("listagem.jsp").forward(request, response);
+			
+		}else if (uriPath[uriPath.length - 1].equals("filme-view")) {
+			//Recebendo o id do filme da pagina de listagem e colocando em uma variavel
+			int idFilme = Integer.parseInt(request.getParameter("id"));
+			
+			
+	
+			//Instanciando a classe BO para iniciar o processo
+			// de listagem dos dados.
+			FilmeBO fbo = new FilmeBO();
+			//Recebendo um objeto da listagem e colocando em uma lista
+			//do tipo FilmeBEAN
+			FilmeBEAN fb =  fbo.listaFilme(idFilme);
+						
+			// Criando um atributo no request:
+			request.setAttribute("filmeBean", fb);
+			// Criando um dispatcher com o request para enviar o atributo com
+			// a lista para a página listagem receber e apresentar  o conteúdo...
+			request.getRequestDispatcher("filme.jsp").forward(request, response);
 		}
 	}
 
