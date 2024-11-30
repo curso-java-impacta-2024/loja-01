@@ -10,6 +10,7 @@
 </head>
 <body>
 
+	<c:if test="${mensagem eq '' || mensagem == null}">
 	<h1>MEU FILME</h1>
 	<div>
 		<p>Título : ${objFilme.titulo}</p>
@@ -20,5 +21,9 @@
 	<p>
 		<a href="index.jsp">INÍCIO</a>
 	</p>
+	</c:if>
+	<c:if test="${mensagem != ''}">
+	<h1>${mensagem}</h1>
+	</c:if>
 </body>
 </html>

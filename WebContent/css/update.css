@@ -16,116 +16,18 @@ body #container {
   border-radius: 5px;
   box-shadow: 4px 4px #47657f;
 }
-body #container #pwdError {
-  width: 206px;
-  height: 37px;
-  position: absolute;
-  left: 94%;
-  top: 55%;
-}
-body #container #pwdError img {
-  position: absolute;
-}
-body #container #pwdError p {
-  font-family: "Open Sans", "sans-serif";
-  font-size: 0.9em;
-  font-style: italic;
-  color: #fff;
-  position: absolute;
-  z-index: 2;
-  left: 17%;
-  top: 28%;
-}
-body #container #emlError {
-  width: 206px;
-  height: 37px;
-  position: absolute;
-  left: 94%;
-  top: 43%;
-}
-body #container #emlError img {
-  position: absolute;
-}
-body #container #emlError p {
-  font-family: "Open Sans", "sans-serif";
-  font-size: 0.9em;
-  font-style: italic;
-  color: #fff;
-  position: absolute;
-  z-index: 2;
-  left: 25%;
-  top: 28%;
-}
-body #container #fNameError {
-  width: 206px;
-  height: 37px;
-  position: absolute;
-  left: 94%;
-  top: 20%;
-}
-body #container #fNameError img {
-  position: absolute;
-}
-body #container #fNameError p {
-  font-family: "Open Sans", "sans-serif";
-  font-size: 0.9em;
-  font-style: italic;
-  color: #fff;
-  position: absolute;
-  z-index: 2;
-  left: 22%;
-  top: 28%;
-}
-body #container #typeError {
-  width: 206px;
-  height: 37px;
-  position: absolute;
-  left: 94%;
-  top: 67%;
-}
-body #container #typeError img {
-  position: absolute;
-}
-body #container #typeError p {
-  font-family: "Open Sans", "sans-serif";
-  font-size: 0.9em;
-  font-style: italic;
-  color: #fff;
-  position: absolute;
-  z-index: 2;
-  left: 15%;
-  top: 28%;
-}
-body #container #LNameError {
-  width: 206px;
-  height: 37px;
-  position: absolute;
-  left: 94%;
-  top: 30%;
-}
-body #container #LNameError img {
-  position: absolute;
-}
-body #container #LNameError p {
-  font-family: "Open Sans", "sans-serif";
-  font-size: 0.9em;
-  font-style: italic;
-  color: #fff;
-  position: absolute;
-  z-index: 2;
-  left: 22%;
-  top: 28%;
-}
+
+
 body #container section {
   background-color: #354b5e;
 }
 body #container section article {
   text-align: center;
 }
-body #container section article h1 {
+h1 {
   font-family: "Abril Fatface", "cursive";
   color: #fff;
-  font-size: 3.5em;
+  font-size: 2.5em;
   margin-top: 0.3em;
 }
 body #container section article form {
@@ -146,14 +48,24 @@ body #container section article form label {
   font-size: 14px;
   display: inline-block;
 }
+body #container section article form select {
+  font-family:  "Open Sans", "sans-serif";
+  font-style: italic;
+  color: #354b5e;
+  width: 170px;
+  padding: 5px 2px;
+  font-size: 14px;
+  display: inline-block;
+  border: 0;
+}
 body #container section article form input[type=text],
+body #container section article form input[type=number],
 body #container section article form input[type=password] {
   font-family: "Open Sans", "sans-serif";
   display: inline-block;
   font-style: italic;
   width: 170px;
   padding: 5px 2px;
-  box-shadow: -5px 0px #fff;
   outline: 0;
   font-size: 14px;
   border: 0;
