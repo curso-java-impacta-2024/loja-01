@@ -9,7 +9,10 @@
 <title>RESULT</title>
 </head>
 <body>
-
+	<p>
+		<a href="index.jsp">INÍCIO</a>
+	</p>
+	
 	<c:if test="${msg eq '' || msg == null}">
 		<h1>MEU FILME</h1>
 		<div>
