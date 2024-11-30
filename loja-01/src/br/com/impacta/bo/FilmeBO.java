@@ -25,10 +25,10 @@ public class FilmeBO {
 //		return fdao.insert(fb);
 //	}
 //	
-//	public boolean atualizaFilme(FilmeBEAN fb) {
-//		fdao = new FilmeDAO();
-//		return fdao.update(fb);
-//	}
+	public FilmeBEAN atualizaFilme(FilmeBEAN fb) {
+		fdao = new FilmeDAO();
+		return fdao.update(fb);
+	}
 //	
 //	public boolean deletaFilme(int id) {
 //		fdao = new FilmeDAO();
