@@ -10,74 +10,54 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="./css/update.css">
 
-<title>Update Filme</title>
+<title>UPDATE FILME</title>
 </head>
 <body>
+	<p>
+		<a href="index.jsp">INÍCIO</a>
+	</p>
+
+
 	<section id="container">
 
-		<div id="pwdError">
-			<p>Password is too short!</p>
-			<img src="http://www.airrickdunfield.com/media/planets/pwdError.svg"
-				alt="" />
-		</div>
-
-		<div id="emlError">
-			<p>Not a valid email!</p>
-			<img src="http://www.airrickdunfield.com/media/planets/pwdError.svg"
-				alt="" />
-		</div>
-
-		<div id="typeError">
-			<p>Passwords don't match!</p>
-			<img src="http://www.airrickdunfield.com/media/planets/pwdError.svg"
-				alt="" />
-		</div>
-
-		<div id="fNameError">
-			<p>Enter a first name!</p>
-			<img src="http://www.airrickdunfield.com/media/planets/pwdError.svg"
-				alt="" />
-		</div>
-
-		<div id="LNameError">
-			<p>Enter a last name!</p>
-			<img src="http://www.airrickdunfield.com/media/planets/pwdError.svg"
-				alt="" />
-		</div>
 
 		<section>
 			<article>
-				<h1>Sign Up</h1>
-				<form action="#">
+				<h1>Atualizar</h1>
+				<form action="filme-atualizado" method="post">
 
 					<div>
-						<label for="firstName">First Name:</label> <input type="text"
-							name="firstName" id="firstName" placeholder="John" />
+						<label for="idTitulo">Título:</label> <input type="text"
+							name="titulo" id="idTitulo" placeholder="titulo do filme"
+							value="${filmeBean.titulo}" />
 					</div>
 
 					<div>
-						<label for="lastName">Last Name:</label> <input type="text"
-							name="lastName" id="lastName" placeholder="Doe" />
+						<label for="idDuracao">Duração:</label> <input type="number"
+							name="duracao" id="idDuracao" placeholder="duração do filme"
+							value="${filmeBean.duracao}" />
 					</div>
 
 					<div>
-						<label for="email">Email:</label> <input type="text" name="email"
-							id="email" placeholder="address@example.com" />
+						<label for="idGenero">Gênero:</label> <select name="genero"
+							id="idGenero">
+							<option value="0">Seleciona uma opção</option>
+							<option value="acao">Ação</option>
+							<option value="drama">Drama</option>
+							<option value="terror">Terror</option>
+							<option value="aventura">Aventura</option>
+							<option value="ficcao">Ficção</option>
+						</select>
+					</div>
+					<div>
+						<label for="idAnoLanc">Ano de Lançamento:</label> <input
+							type="number" name="anoLanc" id="idAnoLanc"
+							placeholder="ano de lançamento" value="${filmeBean.anoLanc}" />
 					</div>
 
-					<div>
-						<label for="password">Password:</label> <input type="password"
-							name="password" id="password" placeholder="must be 8 characters" />
-					</div>
-
-					<div>
-						<label for="rPassword">Retype Password:</label> <input
-							type="password" name="rPassword" id="rPassword"
-							placeholder="********" />
-					</div>
 
 					<div id="submit">
-						<input type="submit" value="Submit" id="submit" />
+						<input type="submit" value="Submit" />
 					</div>
 				</form>
 			</article>
