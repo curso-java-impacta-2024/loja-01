@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
+
 import br.com.impacta.bean.FilmeBEAN;
 import br.com.impacta.bo.FilmeBO;
 
 /**
  * Servlet implementation class CadastroController
  */
-@WebServlet(urlPatterns= {"/index.php", "/listagem","/filme-view"})
+@WebServlet(urlPatterns= {"/index.php", "/listagem","/filme-view","update"})
 
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -86,8 +88,27 @@ public class CadastroController extends HttpServlet {
 			// Criando um dispatcher com o request para enviar o atributo com
 			// a lista para a página listagem receber e apresentar  o conteúdo...
 			request.getRequestDispatcher("filme.jsp").forward(request, response);
-		}
+		}else if (uriPath[uriPath.length - 1].equals("update")) {
+		//Recebendo o id do filme da pagina de listagem e colocando em uma variavel
+		int idFilme = Integer.parseInt(request.getParameter("id"));
+
+		//Instanciando a classe BO para iniciar o processo
+		// de listagem dos dados.
+		FilmeBO fbo = new FilmeBO();
+		//Recebendo um objeto da listagem e colocando em uma lista
+		//do tipo FilmeBEAN
+		FilmeBEAN fb =  fbo.listaFilme(idFilme);
+					
+		// Criando um atributo no request:
+		request.setAttribute("filmeBean", fb);
+		// Criando um dispatcher com o request para enviar o atributo com
+		// a lista para a página listagem receber e apresentar  o conteúdo...
+		request.getRequestDispatcher("upadate-filme.jsp").forward(request, response);
 	}
 
+}
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+			
+		}
 	
 }

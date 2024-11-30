@@ -1,20 +1,20 @@
 package br.com.impacta.bean;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 @Getter
-@Setter
+@Setter 
+public class PessoaBean {
+	
+	private String nome;
+	
+	private Date dtNsac;
 
-public class FilmeBEAN {
-	private int id;
-	private String titulo;
-	private double duracao;
-	private String genero;
-	private int anoLanc;
 	
 }
