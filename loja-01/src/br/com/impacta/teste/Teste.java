@@ -3,8 +3,11 @@ package br.com.impacta.teste;
 import java.util.Calendar;
 import java.util.Date;
 
+import br.com.impacta.bean.FilmeBEAN;
 import br.com.impacta.bean.PessoaBean;
+import br.com.impacta.bo.FilmeBO;
 import br.com.impacta.conexao.ConexaoFactory;
+import br.com.impacta.dao.FilmeDAO;
 
 public class Teste {
 
@@ -15,19 +18,33 @@ public class Teste {
 //	cf.getConexao();
 		
 	//Instanciar Pessoa
-		PessoaBean pessoaBean;
+//		PessoaBean pessoaBean;
+//		
+//	//Construi o objeto
+//		pessoaBean = new PessoaBean();
+//		
+//		pessoaBean.setNome("Juca");
+//		
+//		Date dtNasc = new Date();
+//		dtNasc.setTime(Calendar.getInstance().getTimeInMillis());
+//		pessoaBean.setDtNasc(dtNasc);
+//		
+//		System.out.println(pessoaBean.getNome());
 		
-	//Construi o objeto
-		pessoaBean = new PessoaBean();
+		FilmeBO fbo = new FilmeBO();
+		FilmeBEAN fb = new FilmeBEAN();
 		
-		pessoaBean.setNome("Juca");
+		fb = fbo.listaFilme(1);
 		
-		Date dtNasc = new Date();
-		dtNasc.setTime(Calendar.getInstance().getTimeInMillis());
-		pessoaBean.setDtNasc(dtNasc);
+		System.out.println(fb.getTitulo());
+		System.out.println(fb.getDuracao());
 		
-		System.out.println(pessoaBean.getNome());
+		fb.setDuracao(3.3);
 		
+		fbo.atualizaFilme(fb);
+//		
+//		System.out.println(fb.getTitulo());
+//		System.out.println(fb.getDuracao());
 		
 	}
 

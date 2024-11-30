@@ -103,7 +103,7 @@ public class FilmeDAO implements FilmeDAOInterface{
 	}
 
 	@Override
-	public FilmeBEAN update(FilmeBEAN fb) {
+	public boolean update(FilmeBEAN fb) {
 		
 		String sql = "UPDATE FILME SET TITULO = ?, DURACAO = ?, GENERO = ?, ANOLANC = ?"
 				+ " WHERE ID = ?";
@@ -117,19 +117,23 @@ public class FilmeDAO implements FilmeDAOInterface{
 			ps.setInt(4, fb.getAnoLanc());
 			ps.setInt(5, fb.getId());
 			
-			ps.executeUpdate();
+			int upFilme = ps.executeUpdate();
+			
+			System.out.println(upFilme);
 			
 			ps.close();
 			con.close();
 			
-			return fb;
+			if(upFilme>0) {
+				return true;
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 	@Override

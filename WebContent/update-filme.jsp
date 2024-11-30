@@ -36,7 +36,7 @@
 					</div>
 
 					<div>
-						<label for="idDuracao">Duração:</label> <input type="number"
+						<label for="idDuracao">Duração:</label> <input type="text"
 							name="duracao" id="idDuracao" placeholder="duração filme" 
 							value="${filmeBean.duracao}"/>
 					</div>

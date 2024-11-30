@@ -121,13 +121,14 @@ public class CadastroController extends HttpServlet {
 			FilmeBEAN fb = new FilmeBEAN();
 			// Pegando cada dado do formulário e adicionando no atributo do ObjFilme
 			fb.setTitulo(request.getParameter("titulo"));
-			fb.setDuracao(Integer.parseInt(request.getParameter("duracao")));
+			fb.setDuracao(Double.parseDouble(request.getParameter("duracao")));
 			fb.setGenero(request.getParameter("genero"));
 			fb.setAnoLanc(Integer.parseInt(request.getParameter("anoLanc")));
 			
 			fbo = new FilmeBO();
-				
-			if(fbo.atualizaFilme(fb)!= null) {
+			boolean upFilme = fbo.atualizaFilme(fb);
+			
+			if(upFilme) {
 				// Criando um atributo no request:
 				request.setAttribute("msg", "Filme Atualizado com SUCESSO!");
 
