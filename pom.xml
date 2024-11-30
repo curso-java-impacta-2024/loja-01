@@ -5,7 +5,7 @@
 	<groupId>loja-01</groupId>
 	<artifactId>loja-01</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>war</packaging> 
 	<build>
 		<sourceDirectory>loja-01/src</sourceDirectory>
 		<plugins>
@@ -34,7 +34,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
-
+		
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 
