@@ -26,7 +26,8 @@
 					<th>Ano de Lançamento</th>
 					<th>Duração</th>
 					<th>Gênero</th>
-					<th>Editar / Excluir</th>
+					<th>Editar</th>
+					<th>Excluir</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,7 +37,8 @@
 						<td>${filme.anoLanc}</td>
 						<td>${filme.duracao}</td>
 						<td>${filme.genero}</td>
-						<td><a href="update?id=${filme.id}">Editar</a> | <a>Excluir</a></td>
+						<td><a href="update?id=${filme.id}"><img src="./img/editar.png" alt="lapis" width="10%"/></a> </td>
+						<td><a href="delete?id=${filme.id}"><img src="./img/excluir.png" alt="lixeira" width="10%"/></a> </td>
 					</tr>
 				</c:forEach>
 			</tbody>

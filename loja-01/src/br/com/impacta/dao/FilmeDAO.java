@@ -52,120 +52,143 @@ public class FilmeDAO implements FilmeDAOInterface {
 
 	}
 
-	
-	public List<FilmeBEAN> select(){
-		
+	public List<FilmeBEAN> select() {
+
 		String sql = "SELECT * FROM FILME";
-		
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			
+
 			ResultSet rs = ps.executeQuery();
-			
+
 			List<FilmeBEAN> listaFilmes = new ArrayList<FilmeBEAN>();
-			
+
 			FilmeBEAN fb;
-			
+
 			while (rs.next()) {
 				fb = new FilmeBEAN();
 				fb.setId(Integer.parseInt(rs.getString("id")));
 				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc").replace("-", "")));
-				fb.setDuracao( Double.parseDouble(rs.getString("duracao")));
+				fb.setDuracao(Double.parseDouble(rs.getString("duracao")));
 				fb.setGenero(rs.getString("genero"));
 				fb.setTitulo(rs.getString("titulo"));
-				
+
 				listaFilmes.add(fb);
 			}
-			
-			//Encerrar os objetos do BANCO
+
+			// Encerrar os objetos do BANCO
 			rs.close();
 			ps.close();
 			con.close();
-			return  listaFilmes;
-			
+			return listaFilmes;
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
-		
+
 	}
-	
-	//Crie a addinatura de um metodo para retornar apenas um registro do banco de dados
-	//passando um unico parametro.
-	
+
+	// Crie a addinatura de um metodo para retornar apenas um registro do banco de
+	// dados
+	// passando um unico parametro.
+
 	public FilmeBEAN select(int id) {
-		
+
 		String sql = "SELECT * FROM FILME WHERE id = ?";
-		
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
-			ResultSet rs =	ps.executeQuery();
-			
+			ResultSet rs = ps.executeQuery();
+
 			FilmeBEAN fb = new FilmeBEAN();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				fb.setId(Integer.parseInt(rs.getString("id")));
 				fb.setAnoLanc(Integer.parseInt(rs.getString("anoLanc").replace("-", "")));
-				fb.setDuracao( Double.parseDouble(rs.getString("duracao")));
+				fb.setDuracao(Double.parseDouble(rs.getString("duracao")));
 				fb.setGenero(rs.getString("genero"));
 				fb.setTitulo(rs.getString("titulo"));
 			}
-			
-			//Encerrar os objetos do BANCO
+
+			// Encerrar os objetos do BANCO
 			rs.close();
 			ps.close();
 			con.close();
-			
-			//Retornando um FilmeBEAN;
-			return  fb;
-			
-			
+
+			// Retornando um FilmeBEAN;
+			return fb;
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
-		
+
 	}
 
 	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean update(FilmeBEAN fb) {
 
-	@Override
-	public FilmeBEAN update(FilmeBEAN fb) {
-		
 		String sql = "UPDATE FILME SET TITULO = ?, DURACAO = ?, GENERO = ?, ANOLANC = ? WHERE ID = ?";
-		
+
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			
+
 			ps.setString(1, fb.getTitulo());
 			ps.setDouble(2, fb.getDuracao());
 			ps.setString(3, fb.getGenero());
 			ps.setInt(4, fb.getAnoLanc());
 			ps.setInt(5, fb.getId());
-			
-			ps.executeUpdate();
-			
+
+			System.err.println(ps);
+
+			int upFilme = ps.executeUpdate();
+
+			System.out.println(upFilme);
+
 			ps.close();
 			con.close();
-			
-			return fb;
-			
+
+			if (upFilme > 0) {
+				return true;
+			}
+
 		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		
-		
-		return null;
+
+		return false;
+	}
+
+	@Override
+	public boolean delete(int id) {
+		String sql = "DELETE FROM FILME WHERE ID = ?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, id);
+
+			int resultado = ps.executeUpdate();
+
+			ps.close();
+			con.close();
+
+			if (resultado > 0) {
+				return true;
+			}
+
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return false;
 	}
 
 	@Override
@@ -173,6 +196,5 @@ public class FilmeDAO implements FilmeDAOInterface {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
 
 }

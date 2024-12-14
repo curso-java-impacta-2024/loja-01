@@ -24,15 +24,17 @@ public class FilmeBO {
 //		return fdao.insert(fb);
 //	}
 //	
-	public FilmeBEAN atualizaFilme(FilmeBEAN fb) {
+	public boolean atualizaFilme(FilmeBEAN fb) {
 		fdao = new FilmeDAO();
 		return fdao.update(fb);
 	}
-//	
-//	public boolean deletaFilme(int id) {
-//		fdao = new FilmeDAO();
-//		return fdao.delete(id);
-//	}
+	
+
+	
+	public boolean deletaFilme(int id) {
+		fdao = new FilmeDAO();
+		return fdao.delete(id);
+	}
 	
 
 }

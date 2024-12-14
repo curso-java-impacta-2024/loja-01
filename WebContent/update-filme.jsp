@@ -25,7 +25,7 @@
 			<article>
 				<h1>Atualizar</h1>
 				<form action="filme-atualizado" method="post">
-
+					<input type="hidden" name="idFilme" value="${filmeBean.id}" />
 					<div>
 						<label for="idTitulo">Título:</label> <input type="text"
 							name="titulo" id="idTitulo" placeholder="titulo do filme"

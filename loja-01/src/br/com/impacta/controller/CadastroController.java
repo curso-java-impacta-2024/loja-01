@@ -15,8 +15,7 @@ import br.com.impacta.bo.FilmeBO;
 /**
  * Servlet implementation class CadastroController
  */
-
-@WebServlet(urlPatterns = { "/index.php", "/listagem", "/filme-view", "/update", "/filme-atualizado" })
+@WebServlet(urlPatterns = { "/index.php", "/listagem", "/filme-view", "/update", "/filme-atualizado", "/delete" })
 
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,8 +55,8 @@ public class CadastroController extends HttpServlet {
 			request.getRequestDispatcher("result.jsp").forward(request, response);
 		} else if (uriPath[uriPath.length - 1].equals("listagem")) {
 
-			// Instanciando a classe BO para iniciar o processo de listagem dos dados
-			// Criando um atributo no request:
+			// Instanciando a classe BO para iniciar o processo
+			// de listagem dos dados.
 			FilmeBO fbo = new FilmeBO();
 			// Recebendo a lista do método de listagem e colocando em uma lista
 			// do tipo FilmeBEAN
@@ -65,77 +64,106 @@ public class CadastroController extends HttpServlet {
 
 			// Criando um atributo no request:
 			request.setAttribute("listaDeFilmes", lista);
-
-			// Criando um dispatcher com o request para enviar o atributo
-			// para a nova página receber e ler o conteúdo...
+			// Criando um dispatcher com o request para enviar o atributo com
+			// a lista para a página listagem receber e apresentar o conteúdo...
 			request.getRequestDispatcher("listagem.jsp").forward(request, response);
 		} else if (uriPath[uriPath.length - 1].equals("filme-view")) {
 
-			// Recebendo o id do filme da pagina de listagem e colocando em uma variavel
+			// Recebendo o ID do filme da página de listagem e colocando em uma
+			// variável
 			int idFilme = Integer.parseInt(request.getParameter("id"));
 
+			// Instanciando a classe BO para iniciar o processo
+			// de listagem dos dados.
 			FilmeBO fbo = new FilmeBO();
 
-			// Recebendo um objeto do tipo FilmeBEAN.
+			// Recebendo um objeto do tipo FilmeBEAN
 			FilmeBEAN fb = fbo.listaFilme(idFilme);
 
 			// Criando um atributo no request:
 			request.setAttribute("filmeBean", fb);
-
-			// Criando um dispatcher com o request para enviar o atributo
-			// para a nova página receber e ler o conteúdo...
+			// Criando um dispatcher com o request para enviar o atributo com
+			// a lista para a página listagem receber e apresentar o conteúdo...
 			request.getRequestDispatcher("filme.jsp").forward(request, response);
 		} else if (uriPath[uriPath.length - 1].equals("update")) {
 
-			// Recebendo o id do filme da pagina de listagem e colocando em uma variavel
+			// Recebendo o ID do filme da página de listagem e colocando em uma
+			// variável
 			int idFilme = Integer.parseInt(request.getParameter("id"));
 
+			// Instanciando a classe BO para iniciar o processo
+			// de listagem dos dados.
 			FilmeBO fbo = new FilmeBO();
 
-			// Recebendo um objeto do tipo FilmeBEAN.
+			// Recebendo um objeto do tipo FilmeBEAN
 			FilmeBEAN fb = fbo.listaFilme(idFilme);
 
 			// Criando um atributo no request:
 			request.setAttribute("filmeBean", fb);
-
-			// Criando um dispatcher com o request para enviar o atributo
-			// para a nova página receber e ler o conteúdo...
+			// Criando um dispatcher com o request para enviar o atributo com
+			// a lista para a página listagem receber e apresentar o conteúdo...
 			request.getRequestDispatcher("update-filme.jsp").forward(request, response);
+		} else if (uriPath[uriPath.length - 1].equals("delete")) {
+
+			// Recebendo o ID do filme da página de listagem que sera excluido
+			int idFilme = Integer.parseInt(request.getParameter("id"));
+
+			// Instanciando a classe BO para iniciar o processo
+			// de exclusão dos dados.
+			FilmeBO fbo = new FilmeBO();
+
+			// Recebendo a resposta sobre a exclusão do objeto.
+			boolean resultado = fbo.deletaFilme(idFilme);
+
+			if (resultado) {
+				// Criando um atributo no request:
+				request.setAttribute("msg", "Filme excluído com sucesso!");
+				// Criando um dispatcher com o request para enviar o atributo com
+				// a resposta para a pagina de resultado.
+				request.getRequestDispatcher("result.jsp").forward(request, response);
+			} else {
+				// Criando um atributo no request:
+				request.setAttribute("msg", "Ocorreu um erro ao tentar excluir o filme");
+				// Criando um dispatcher com o request para enviar o atributo com
+				// a resposta para a pagina de resultado.
+				request.getRequestDispatcher("result.jsp").forward(request, response);
+			}
 		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		// Recuperando o path atual
 		String uriPath[] = request.getRequestURI().split("/");
 
 		// Instanciar classe BO
-
-		FilmeBO fbo = null;
+		FilmeBO fbo;
 
 		if (uriPath[uriPath.length - 1].equals("filme-atualizado")) {
-
 			// Recebendo os dados do FORMULÁRIO E COLOCANDO NO OBJ...
 			FilmeBEAN fb = new FilmeBEAN();
-
 			// Pegando cada dado do formulário e adicionando no atributo do ObjFilme
 			fb.setTitulo(request.getParameter("titulo"));
-			fb.setDuracao(Integer.parseInt(request.getParameter("duracao")));
+			fb.setDuracao(Double.parseDouble(request.getParameter("duracao")));
 			fb.setGenero(request.getParameter("genero"));
 			fb.setAnoLanc(Integer.parseInt(request.getParameter("anoLanc")));
+			fb.setId(Integer.parseInt(request.getParameter("idFilme")));
 
 			fbo = new FilmeBO();
+			boolean upFilme = fbo.atualizaFilme(fb);
 
-			if (fbo.atualizaFilme(fb) != null) {
+			if (upFilme) {
 				// Criando um atributo no request:
-				request.setAttribute("msg", "Filme atualizado com SUCESSO!");
+				request.setAttribute("msg", "Filme Atualizado com SUCESSO!");
 
 				// Criando um dispatcher com o request para enviar o atributo
 				// para a nova página receber e ler o conteúdo...
 				request.getRequestDispatcher("result.jsp").forward(request, response);
+
 			} else {
 				// Criando um atributo no request:
-				request.setAttribute("msg", "Ocorreu um erro na atualização");
+				request.setAttribute("msg", "Ocorreu um erro na atualização!");
 
 				// Criando um dispatcher com o request para enviar o atributo
 				// para a nova página receber e ler o conteúdo...
@@ -143,5 +171,7 @@ public class CadastroController extends HttpServlet {
 			}
 
 		}
+
 	}
+
 }
