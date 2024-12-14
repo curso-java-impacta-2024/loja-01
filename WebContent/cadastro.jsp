@@ -15,7 +15,7 @@
 	<h1>CADASTRO DE FILMES</h1>
 
 	<div>
-		<form action="index.php" method="get">
+		<form action="index.php" method="post">
 			<fieldset>
 				<legend>Cadastro</legend>
 				<div>

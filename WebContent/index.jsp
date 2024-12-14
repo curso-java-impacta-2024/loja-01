@@ -17,8 +17,8 @@
 			<h1>IMDB-FAKE</h1>
 			<nav>
 				<ul>
-					<li> <a href="listagem">Lista de Filmes</a> </li>
-					<li>Cadastrar</li>
+					<li><a href="listagem">Lista de Filmes</a></li>
+					<li><a href="cadastro.jsp">Cadastrar</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -51,12 +51,10 @@
 		<footer>
 			<h2>Nossos contatos:</h2>
 			<div>
-				<span>WhatsApp</span>
-				<a href="tel:11990785353">11990785353</a>
+				<span>WhatsApp</span> <a href="tel:11990785353">11990785353</a>
 			</div>
 			<div>
-				<span>Email</span>
-				<a href="mailto:meuemail@email.com">meuemail@email.com</a>
+				<span>Email</span> <a href="mailto:meuemail@email.com">meuemail@email.com</a>
 			</div>
 			<div>
 				<p>Criado por você, o melhor desenvolvedor. &copy; - 2024</p>
