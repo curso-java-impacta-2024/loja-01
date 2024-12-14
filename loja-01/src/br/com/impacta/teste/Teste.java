@@ -32,6 +32,9 @@ public class Teste {
 		System.out.println(pessoaBean.getNome());
 		
 		
+		
+		
+		
 
 	}
 

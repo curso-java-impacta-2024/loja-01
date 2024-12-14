@@ -29,6 +29,7 @@
 			<article>
 				<h1>Atualizar</h1>
 				<form action="filme-atualizado" method="post">
+					<input type="hidden" name="idFilme" value="${filmeBean.id}"/>
 
 					<div>
 						<label for="idtitulo">Titulo:</label> <input type="text"
@@ -38,7 +39,7 @@
 
 					<div>
 						<label for="idDuracao">Duração:</label> <input type="number"
-							name="Duracao" id="idDuracao" placeholder="duração filme"
+							name="duracao" id="idDuracao" placeholder="duração filme"
 							valeu="${filmeBean.duracao}" />
 					</div>
 
