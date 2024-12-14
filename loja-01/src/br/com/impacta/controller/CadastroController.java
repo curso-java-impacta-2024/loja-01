@@ -159,7 +159,37 @@ public class CadastroController extends HttpServlet {
 				
 			}
 		
-	}
+	    } else if(uriPath[uriPath.length - 1].equals("index.php")) {
+	    	
+		// Recebendo os dados do FORMULÁRIO E COLOCANDO NO OBJ...
+					FilmeBEAN fb = new FilmeBEAN();
+					// Pegando cada dado do formulário e adicionando no atributo do ObjFilme
+					fb.setTitulo(request.getParameter("titulo"));
+					Double duracao = Double.parseDouble(request.getParameter("duracao"));
+					fb.setDuracao(duracao);
+					fb.setGenero(request.getParameter("genero"));
+					fb.setAnoLanc(Integer.parseInt(request.getParameter("anoLanc")));
+					
+					FilmeBO fbo2 = new FilmeBO();
+					boolean cadastrarFilme = fbo2.cadastrarFilme(fb);
+					
+					if(cadastrarFilme) {
+						// Criando um atributo no request:
+						request.setAttribute("mensagem", "Filme cadastrado com sucesso.");
+			
+						// Criando um dispatcher com o request para enviar o atributo
+						// para a nova página receber e ler o conteúdo...
+						request.getRequestDispatcher("result.jsp").forward(request, response);
+					}else {
+						
+						request.setAttribute("mensagem", "Ocorreu um erro no cadastro.");
+						// Criando um dispatcher com o request para enviar o atributo
+						// para a nova página receber e ler o conteúdo...
+						request.getRequestDispatcher("result.jsp").forward(request, response);
+						
+					}
+		
+	    }
 	
 	}	
 }

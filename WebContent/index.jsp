@@ -18,7 +18,7 @@
 			<nav>
 				<ul>
 					<li> <a href="listagem">Lista de Filmes</a> </li>
-					<li>Cadastrar</li>
+					<li> <a href="cadastro.jsp">Cadastrar</a></li>
 				</ul>
 			</nav>
 		</header>

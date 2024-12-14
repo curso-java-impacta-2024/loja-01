@@ -15,7 +15,7 @@
 	<h1>CADASTRO DE FILMES</h1>
 
 	<div>
-		<form action="index.php" method="get">
+		<form action="index.php" method="post">
 			<fieldset>
 				<legend>Cadastro</legend>
 				<div>
@@ -43,7 +43,7 @@
 				<div>
 					<label for="idAnoLanc">Ano de Lançamento</label> <input type="text"
 						name="anoLanc" id="idAnoLanc"
-						placeholder="Digite o ano de lançamento do filme." maxlength="4"
+						placeholder="Digite o ano de lançamento." maxlength="4"
 						required>
 				</div>
 
