@@ -33,7 +33,8 @@
 	                    <td>${filme.anoLanc}</td>
 	                    <td>${filme.duracao}</td>
 	                    <td>${filme.genero}</td>
-	                    <td><a href="update?id=${filme.id}">Editar</a> | <a>Excluir</a></td>
+	                    <td><a href="update?id=${filme.id}"><img src="./img/editar.png" alt="Lápis" width="10%"/></a> | 
+	                    <a href="delete?id=${filme.id}"><img src="./img/excluir.png" alt="Lixeira" width="10%"/></a></td>
 	                </tr>
 	            </c:forEach>
 	        </tbody>

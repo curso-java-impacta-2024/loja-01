@@ -97,14 +97,39 @@ public class FilmeDAO implements FilmeDAOInterface{
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		
+		String sql = "DELETE FROM FILME WHERE ID = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			int resultado = ps.executeUpdate();
+			
+			
+			ps.close();
+			con.close();
+			
+			
+			
+			if( resultado> 0) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
 		return false;
 	}
 
 	@Override
-	public FilmeBEAN update(FilmeBEAN fb) {
+	public boolean update(FilmeBEAN fb) {
 		
-		String sql = "UPDATE FILME SET TITULO = ?, DURACAO = ?, GENERO = ?, ANOLANC = ?" + "WHERE ID = ?";
+		String sql = "UPDATE FILME SET TITULO = ?, DURACAO = ?, GENERO = ?, ANOLANC = ? WHERE ID = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -115,25 +140,32 @@ public class FilmeDAO implements FilmeDAOInterface{
 			ps.setInt(4, fb.getAnoLanc());
 			ps.setInt(5, fb.getId());
 			
-			ps.executeUpdate();
+			int upFilme = ps.executeUpdate();
 			
+			System.out.println(upFilme);
+			ps.executeUpdate();
 			ps.close();
 			con.close();
 			
-			return fb;
 			
-		} catch (Exception e) {
+			
+			if(upFilme > 0) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		
-		return null;
+		return false ;
 	}
 
 	@Override
 	public boolean insert(FilmeBEAN fb) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 		

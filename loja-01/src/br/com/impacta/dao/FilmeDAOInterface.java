@@ -10,7 +10,7 @@ public interface FilmeDAOInterface {
 	
 	public boolean delete(int id);
 	
-	public FilmeBEAN update(FilmeBEAN fb);
+	public boolean update(FilmeBEAN fb);
 	
 	public boolean insert(FilmeBEAN fb);
 

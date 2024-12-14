@@ -59,7 +59,7 @@
 				<a href="mailto:meuemail@email.com">meuemail@email.com</a>
 			</div>
 			<div>
-				<p>Criado por você, o melhor desenvolvedor. &copy; - 2024</p>
+				<p>Criado por vocÃª, o melhor desenvolvedor. &copy; - 2024</p>
 			</div>
 		</footer>
 	</div>
