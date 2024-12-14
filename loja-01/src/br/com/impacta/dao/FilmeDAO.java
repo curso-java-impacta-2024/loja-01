@@ -166,6 +166,38 @@ public class FilmeDAO implements FilmeDAOInterface{
 	@Override
 	public boolean insert(FilmeBEAN fb) {
 		// TODO Auto-generated method stub
+		
+		String sql = "INSERT INTO FILME(TITULO,DURACAO,GENERO,ANOLANC) VALUES(?,?,?,?)";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, fb.getTitulo());
+			ps.setDouble(2, fb.getDuracao());
+			ps.setString(3, fb.getGenero());
+			ps.setInt(4, fb.getAnoLanc());
+			
+			int resultado = ps.executeUpdate();
+			
+			ps.close();
+			con.close();
+			
+			
+			if(resultado > 0) {
+				
+				return true;
+				
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		return true;
 	}
 	
