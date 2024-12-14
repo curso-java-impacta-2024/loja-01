@@ -13,7 +13,7 @@
 			
 		<h1>Lista com os melhores Filmes</h1>
 			<div>
-				<a href="index.jsp">INÍCIO</a>
+				<a href="index.jsp" style="color: white;" >INÍCIO</a>
 			</div>
 			<div>
 				 <table>
@@ -29,11 +29,11 @@
 	        <tbody>
 	            <c:forEach var="filme" items="${listaDeFilmes}">
 	                <tr>
-	                    <td><a href="filme-view?id=${filme.id}">${filme.titulo}</a></td>
+	                    <td><a href="filme-view?id=${filme.id}" style="color: white;">${filme.titulo}</a></td>
 	                    <td>${filme.anoLanc}</td>
 	                    <td>${filme.duracao}</td>
 	                    <td>${filme.genero}</td>
-	                    <td><a href="update?id=${filme.id}">Editar</a> | <a>Excluir</a></td>
+	                    <td><a href="update?id=${filme.id}"><img src="./img/edit.png" alt="lápis" width="5%" /> </a> &nbsp;&nbsp; <a href="delete?id=${filme.id}"><img src="./img/delete.png" alt="lixeira" width="5%"/></a></td>
 	                </tr>
 	            </c:forEach>
 	        </tbody>

@@ -25,23 +25,24 @@
 			<article>
 				<h1>Atualizar</h1>
 				<form action="filme-atualizado" method="post">
+				<input type="hidden"name="id" value="${filmeBean.id}"/>
 
 					<div>
 						<label for="idTitulo">Título:</label> <input type="text"
-							name="firstName" id="idTitulo" placeholder="Titulo"
+							name="titulo" id="idTitulo" placeholder="Titulo"
 							value="${filmeBean.titulo}" />
 					</div>
 
 					<div>
 						<label for="idDuracao">Duração:</label> <input type="number"
-							name="lastName" id="idDuracao" placeholder="Duracao"
+							name="duracao" id="idDuracao" placeholder="Duracao"
 							value="${filmeBean.duracao}" />
 							
 					</div>
 
 					<div>
 						<label for="idGenero">Gênero:</label> 
-						<select type="text" name="idGenero" id="idGenero">
+						<select type="text" name="genero" id="idGenero">
 						<option value="0">Selecione uma opção</option>
 						<option value="ACAO">Ação</option>
 						<option value="DRAMA">Drama</option>
@@ -53,7 +54,7 @@
 
 					<div>
 						<label for="idAnoLanc">Ano Lançamento:</label> <input type="number"
-							name="password" id="idAnoLanc" placeholder="ano lancamento"
+							name="anoLanc" id="idAnoLanc" placeholder="ano lancamento"
 							value="${filmeBean.anoLanc}" />
 					</div>
 

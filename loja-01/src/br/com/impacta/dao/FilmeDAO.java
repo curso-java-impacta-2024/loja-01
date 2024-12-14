@@ -94,17 +94,41 @@ public class FilmeDAO implements FilmeDAOInterface{
 
 	}
 
-	@Override
+	
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		
+		String sql = "DELETE FROM FILME WHERE ID = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			int deletedFilme = ps.executeUpdate();
+			
+			ps.close();
+			con.close();
+			
+			if(deletedFilme > 0) {
+				return true;
+			}
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
 		return false;
 	}
+	
+	
+	
 
 	@Override
-	public FilmeBEAN update(FilmeBEAN fb) {
+	public boolean update(FilmeBEAN fb) {
 	
 		String sql = "UPDATE FILME SET TITULO = ?, DURACAO = ?,"
-				+ " GENERO = ?, ANOLANC = ?, WHERE ID = ?";
+				+ " GENERO = ?, ANOLANC = ? WHERE ID = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -114,25 +138,30 @@ public class FilmeDAO implements FilmeDAOInterface{
 			ps.setInt(4, fb.getAnoLanc());
 			ps.setInt(5, fb.getId());
 			
-		
-			ps.executeUpdate();
+			System.out.println(ps);
+			
+			int upFilme = ps.executeUpdate();
+
+			System.out.println(upFilme + " linha(s) afe");
+
+			
+			System.out.println(upFilme);
+			
 			ps.close();
 			con.close();
 			
-		
-			return fb;
+			if(upFilme>0) {
+				return true;
+			}
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			
 		
-		
-		
-		
-		
-		
-		return null;
+		return false;
 	}
 
 	@Override
